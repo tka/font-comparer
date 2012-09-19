@@ -36,6 +36,7 @@ use Rack::ShowExceptions  # Nice looking errors
 
 use Rack::Session::Cookie
 
+=begin
 require "warden"
 class FailLoginApp
   def self.call(env)
@@ -73,7 +74,6 @@ class CheckLogin
     @app.call(env)
   end
 end
-
 Warden::Strategies.add(:password) do
   def valid?
     params["username"] || params["password"]
@@ -95,6 +95,7 @@ use Warden::Manager do |manager|
 end
 
 use CheckLogin
+=end
 
 #use Rack::Auth::Basic, "Snack cabinet" do |username, password|
 #  password == 'baokaka'
