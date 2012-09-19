@@ -2,7 +2,7 @@
 
 require 'rubygems'
 require 'bundler'
-
+require 'open-uri'
 begin
   Bundler.setup(:default, :development)
 rescue Bundler::BundlerError => e

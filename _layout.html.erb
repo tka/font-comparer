@@ -21,6 +21,11 @@
                         <span class="icon-bar"></span>
                     </a>
                     <a href="/" class="brand">Font Comparer</a>
+
+                    <ul class="nav"> 
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/moretext">MoreText</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -29,14 +34,6 @@
         <%= content_for?(:page_content) ? yield(:page_content) : yield %>
     </div>
 
-    <% if content_for?(:note) %>
-        <div class="container">
-            <div class="well note">
-                <h2>NOTE:</h2>
-                <%= yield(:note) %>
-            </div>
-        </div>
-    <% end %>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="/javascripts/bootstrap-alert.js"></script>
     <script src="/javascripts/bootstrap-button.js"></script>
@@ -53,4 +50,4 @@
     <%= yield :js %>
     <script type="text/javascript">window.jfAsyncInit=function(){ctb.main({'appId':'4cede834dgiLpl756BrCQMrtaBkNFzeppEkKrsKZOsOel_moqSRdM3Y3ZYVxCVdr9ggtRfpZvhG4whywK0b4Yb6DcY2rOp1nzFAOnt0XEWfBf3trXTGAUK0hL1tWtpjl3McBpu-A6tkIcDQlgFN7Jp6GpDwaMSg3R2QTolU3Tua2mBslJjU='});};(function(){var jf=document.createElement('script');jf.type='text/javascript';jf.async=true;jf.src='http://ds.justfont.com/core/js/v1.0/4cede834dgiLpl756BrCQMrtaBkNFzeppEkKrsKZOsOel_moqSRdM3Y3ZYVxCVdr9ggtRfpZvhG4whywK0b4Yb6DcY2rOp1nzFAOnt0XEWfBf3trXTGAUK0hL1tWtpjl3McBpu-A6tkIcDQlgFN7Jp6GpDwaMSg3R2QTolU3Tua2mBslJjU=.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(jf,s);})();</script>
 </body>
-</html>
+        </html>
