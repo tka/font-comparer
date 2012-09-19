@@ -1,8 +1,9 @@
 <%# char_start = 19968 #0x4E00 %>
 <%# char_end   = 40908 #0x9FCC %>
-<% char_start = (params["char_start"] ? params["char_start"].to_i : 19968)%>
-<% char_end   = char_start + 200 #0x9FCC %>
-<% per_row = 50 %>
+<% per_row  = 25 %>
+<% per_page = 400 %>
+<% char_start = (params["char_start"] ? params["char_start"].to_i : 19950)%>
+<% char_end   = char_start + per_page %>
 <% total_row = ( ( char_end - char_start) / per_row.to_f ).ceil%>
 
 <% sample_data = capture do %>
@@ -10,49 +11,64 @@
         <tr>
             <td> <%= char_start + per_row * y%></td>
             <% per_row.times do |x| %>
-                <% current_char = char_start + y * per_row + x %>
-                <td><%= current_char.chr('utf-8') %></td>
+                <% current_char = ( char_start + y * per_row + x).chr('UTF-8') %>
+                <td data-char="<%=current_char%>">
+                    <%= current_char unless current_char.encode('Big5', :invalid => :replace, :undef => :replace, :replace => "\x0").index("\x0") %>
+                </td>
             <% end  %>
         </tr>
     <% end  %>
 <% end  %>
 
 <% pager = capture do %>
-<ul class="pager">
-    <li><a href="?char_start=<%= char_start - 200 %>">Previous</a></li>
-    <li><%= char_start%>~<%=char_end%></li>
-    <li><a href="?char_start=<%= char_start + 200 %>">Next</a></li>
-</ul>
+    <ul class="pager">
+        <li><a href="?char_start=<%= char_start - per_page %>">Previous</a></li>
+        <li><%= char_start%>~<%=char_end%></li>
+        <li><a href="?char_start=<%= char_start + per_page %>">Next</a></li>
+    </ul>
 <% end  %>
+<p>滑鼠游標移動到文字上方會顯示該字的系統字型樣式</p>
 <h2>系統字</h2>
-<table>
+<table class="table table-bordered">
     <%= sample_data%>
 </table>
 
 <%= pager%>
 
 <h2 class="ct1">信黑體 W3</h2>
-<table class="ct1">
+<table class="table table-bordered ct1">
     <%= sample_data%>
 </table>
 
 <%= pager%>
 
 <h2 class="ct2">信黑體 W4</h2>
-<table class="ct2">
+<table class="table table-bordered ct2">
     <%= sample_data%>
 </table>
 
 <%= pager%>
 
 <h2 class="ct2">信黑體 W6</h2>
-<table class="ct3">
+<table class="table table-bordered ct3">
     <%= sample_data%>
 </table>
 
 <%= pager%>
 
 <h2 class="ct4">信黑體 W8</h2>
-<table class="ct4">
+<table class="table table-bordered ct4">
     <%= sample_data%>
 </table>
+<% content_for :js do %>
+    <script>
+        $('td').hover(function(){
+            $(this).data('origin-char', $(this).text());
+            $(this).text( $(this).data('char') )
+            $(this).css('font-family', 'serif')
+        },function(){
+            $(this).text( $(this).data('origin-char') )
+            $(this).css('font-family', '')
+        })
+    </script>
+<% end %>

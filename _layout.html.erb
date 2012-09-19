@@ -28,8 +28,8 @@
                     <a href="/" class="brand">Font Comparer</a>
 
                     <ul class="nav"> 
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/moretext">MoreText</a></li>
+                        <li class="<%= request.path == '/' ? "active" : ""%>" ><a href="/">Home</a></li>
+                        <li class="<%= request.path == '/moretext' ? "active" : ""%>"><a href="/moretext">MoreText</a></li>
                     </ul>
                 </div>
 
@@ -37,8 +37,14 @@
         </div>
     </div>
     <div class="container">
+
+        <p>
+            本頁面信黑體使用 <a href="http://www.justfont.com/">justFont</a> 網路字型, 僅支援 Big5 範圍的字.
+        </p>
         <%= content_for?(:page_content) ? yield(:page_content) : yield %>
     </div>
+
+    <a href="https://github.com/tka/font-comparer"><img style="position: fixed; z-index:9999; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="/javascripts/jquery.cookie.js"></script>
@@ -69,5 +75,6 @@
         })
     </script>
     <script type="text/javascript">window.jfAsyncInit=function(){ctb.main({'appId':'4cede834dgiLpl756BrCQMrtaBkNFzeppEkKrsKZOsOel_moqSRdM3Y3ZYVxCVdr9ggtRfpZvhG4whywK0b4Yb6DcY2rOp1nzFAOnt0XEWfBf3trXTGAUK0hL1tWtpjl3McBpu-A6tkIcDQlgFN7Jp6GpDwaMSg3R2QTolU3Tua2mBslJjU='});};(function(){var jf=document.createElement('script');jf.type='text/javascript';jf.async=true;jf.src='http://ds.justfont.com/core/js/v1.0/4cede834dgiLpl756BrCQMrtaBkNFzeppEkKrsKZOsOel_moqSRdM3Y3ZYVxCVdr9ggtRfpZvhG4whywK0b4Yb6DcY2rOp1nzFAOnt0XEWfBf3trXTGAUK0hL1tWtpjl3McBpu-A6tkIcDQlgFN7Jp6GpDwaMSg3R2QTolU3Tua2mBslJjU=.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(jf,s);})();</script>
+
 </body>
         </html>
