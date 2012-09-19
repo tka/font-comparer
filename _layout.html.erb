@@ -1,0 +1,56 @@
+<!doctype html>
+<!--[if lt IE 7]> <html lang="en-us" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html lang="en-us" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html lang="en-us" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en-us" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Font Comparer</title>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" media="screen" href="/stylesheets/styles.css">
+        <script src="/javascripts/modernizr-2.5.3.js"></script>
+    </head>
+    <body>
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a href="/" class="brand">Font Comparer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <%= content_for?(:page_content) ? yield(:page_content) : yield %>
+    </div>
+
+    <% if content_for?(:note) %>
+        <div class="container">
+            <div class="well note">
+                <h2>NOTE:</h2>
+                <%= yield(:note) %>
+            </div>
+        </div>
+    <% end %>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="/javascripts/bootstrap-alert.js"></script>
+    <script src="/javascripts/bootstrap-button.js"></script>
+    <script src="/javascripts/bootstrap-carousel.js"></script>
+    <script src="/javascripts/bootstrap-collapse.js"></script>
+    <script src="/javascripts/bootstrap-dropdown.js"></script>
+    <script src="/javascripts/bootstrap-modal.js"></script>
+    <script src="/javascripts/bootstrap-tab.js"></script>
+    <script src="/javascripts/bootstrap-tooltip.js"></script>
+    <script src="/javascripts/bootstrap-popover.js"></script>
+    <script src="/javascripts/bootstrap-transition.js"></script>
+    <script src="/javascripts/app.js"></script>
+    <%= livereload_js if ENV["RACK_ENV"] != "production" && defined?(App)%>
+    <%= yield :js %>
+    <script type="text/javascript">window.jfAsyncInit=function(){ctb.main({'appId':'4cede834dgiLpl756BrCQMrtaBkNFzeppEkKrsKZOsOel_moqSRdM3Y3ZYVxCVdr9ggtRfpZvhG4whywK0b4Yb6DcY2rOp1nzFAOnt0XEWfBf3trXTGAUK0hL1tWtpjl3McBpu-A6tkIcDQlgFN7Jp6GpDwaMSg3R2QTolU3Tua2mBslJjU='});};(function(){var jf=document.createElement('script');jf.type='text/javascript';jf.async=true;jf.src='http://ds.justfont.com/core/js/v1.0/4cede834dgiLpl756BrCQMrtaBkNFzeppEkKrsKZOsOel_moqSRdM3Y3ZYVxCVdr9ggtRfpZvhG4whywK0b4Yb6DcY2rOp1nzFAOnt0XEWfBf3trXTGAUK0hL1tWtpjl3McBpu-A6tkIcDQlgFN7Jp6GpDwaMSg3R2QTolU3Tua2mBslJjU=.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(jf,s);})();</script>
+</body>
+</html>

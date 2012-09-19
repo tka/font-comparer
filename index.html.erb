@@ -1,0 +1,53 @@
+<% sample_data = capture do %>
+    <% char_start = 19968 #0x4E00 %>
+    <% char_end   = 40908 #0x9FCC %>
+    <% char_start   = 21000 #0x9FCC %>
+    <% char_end   = char_start + 300 #0x9FCC %>
+    <% per_row = 50 %>
+    <% total_row = ( ( char_end - char_start) / per_row.to_f ).ceil%>
+
+    <% total_row.times do |y|%>
+        <tr>
+            <td> <%= char_start + per_row * y%></td>
+            <% per_row.times do |x| %>
+                <% current_char = char_start + y * per_row + x %>
+                <td>
+                    <%= current_char.chr('utf-8') %>
+                </td>
+            <% end  %>
+        </tr>
+    <% end  %>
+<% end  %>
+
+<h2>系統字</h2>
+<table>
+    <%= sample_data%>
+</table>
+
+<hr>
+
+<h2 class="ct1">信黑體 W3</h2>
+<table class="ct1">
+    <%= sample_data%>
+</table>
+
+<hr>
+
+<h2 class="ct2">信黑體 W4</h2>
+<table class="ct2">
+    <%= sample_data%>
+</table>
+
+<hr>
+
+<h2 class="ct2">信黑體 W6</h2>
+<table class="ct3">
+    <%= sample_data%>
+</table>
+
+<hr>
+
+<h2 class="ct4">信黑體 W8</h2>
+<table class="ct4">
+    <%= sample_data%>
+</table>
