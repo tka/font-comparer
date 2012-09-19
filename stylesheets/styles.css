@@ -6834,3 +6834,10 @@ a.label:hover, a.badge:hover {
     overflow: visible !important;
   }
 }
+body {
+  padding-top: 60px;
+}
+
+p {
+  line-height: 1.6;
+}
