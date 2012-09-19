@@ -59,10 +59,13 @@
         $(function(){
 
             $('#font-size').change(function(){
-                $.cookie('font-size', $('#font-size').val())
+                $.cookie('font-size', $('#font-size').val());
             })
-            $('table, p').css('font-size', $.cookie('font-size')+"px")
-            $('#font-size').val( $.cookie('font-size') || 20)
+            if(!$.cookie('font-size')){
+                $.cookie('font-size', 20);
+            }
+            $('#font-size').val( $.cookie('font-size'))
+            $('table, p').css('font-size', $.cookie('font-size')+"px");
         })
     </script>
     <script type="text/javascript">window.jfAsyncInit=function(){ctb.main({'appId':'4cede834dgiLpl756BrCQMrtaBkNFzeppEkKrsKZOsOel_moqSRdM3Y3ZYVxCVdr9ggtRfpZvhG4whywK0b4Yb6DcY2rOp1nzFAOnt0XEWfBf3trXTGAUK0hL1tWtpjl3McBpu-A6tkIcDQlgFN7Jp6GpDwaMSg3R2QTolU3Tua2mBslJjU='});};(function(){var jf=document.createElement('script');jf.type='text/javascript';jf.async=true;jf.src='http://ds.justfont.com/core/js/v1.0/4cede834dgiLpl756BrCQMrtaBkNFzeppEkKrsKZOsOel_moqSRdM3Y3ZYVxCVdr9ggtRfpZvhG4whywK0b4Yb6DcY2rOp1nzFAOnt0XEWfBf3trXTGAUK0hL1tWtpjl3McBpu-A6tkIcDQlgFN7Jp6GpDwaMSg3R2QTolU3Tua2mBslJjU=.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(jf,s);})();</script>
